@@ -1,0 +1,5 @@
+env/
+datasets/
+text_sentiment_classification/aclImdb/
+text_sentiment_classification/aclImdb_v1.tar.gz
+text_sentiment_classification/best_model.h5
