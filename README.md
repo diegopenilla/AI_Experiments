@@ -80,7 +80,7 @@ Given a dataset:
 D = \{(x_1, y_1), (x_2, y_2), ..., (x_N, y_N)\}
 ```
 
-where $x_i$is a feature vector and $y_i$is the class label.  
+where $x_i$ is a feature vector and $y_i$ is the class label.  
 For a test point $x$, KNN assigns a class: 
 
 ```math
@@ -645,18 +645,18 @@ Given a dataset $X$ with $n$ features, PCA follows these steps:
 1. Standardize the data (zero mean, unit variance).
 2. Compute the covariance matrix $\Sigma$:
 
-   ```math
-   \Sigma = \frac{1}{n} X^T X
-   ```
+```math
+\Sigma = \frac{1}{n} X^T X
+```
 
 3. Find the eigenvectors and eigenvalues of $\Sigma$.
 4. Sort eigenvectors by eigenvalues (largest to smallest).
 5. Select the top $k$ eigenvectors to form a transformation matrix $W$.
 6. Project the data onto new axes:
 
-   ```math
-   X' = X W
-   ```
+```math
+X' = X W
+```
 
 ## When to Use PCA?
 - When you have high-dimensional data and need to reduce complexity.
