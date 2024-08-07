@@ -23,7 +23,7 @@ where:
 
 ### **2. Effect of the Regularization Parameter $\lambda$**
 
-- **I 5\lambda = 05** → Ridge Regression behaves like **Ordinary Least Squares (OLS)**.
+- **I $\lambda = 0$** → Ridge Regression behaves like **Ordinary Least Squares (OLS)** as there is no penalty for coefficients.
 - **If $\lambda$  is large** → Model coefficients are heavily **penalized**, leading to smaller values and preventing overfitting.
 - **Choosing $\lambda$** → Cross-validation is commonly used to find the optimal value.
 
@@ -489,25 +489,19 @@ The Area Under the ROC Curve (AUC-ROC) quantifies the classifier's performance a
 
 Cross Validation (CV) is a technique to estimate the generalization performance of a machine learning model by partitioning the dataset into multiple subsets for training and validation.
 
-### $K$-Fold Cross Validation
+### K-Fold Cross-Validation
 
-1. **Partition** the dataset $(x_i,y_i)_{i=1}^n$ into $K$ disjoint subsets (folds) of approximately equal size:
-   $$
-   \mathcal{D}_1, \mathcal{D}_2, \dots, \mathcal{D}_K
-   $$
+The dataset is divided into K equal-sized folds, where each fold is used once as a validation set while the rest serve as the training set. The model is trained K times, each time on a different combination of training and validation sets. The final cross-validation score is the average validation loss across all K folds.
 
-2. **Iterate** over each fold $k\in\{1,\dots,K\}$:
-   - Let $\mathcal{D}_k$ be the validation set, and let $\mathcal{D}_{-k}=\mathcal{D}\setminus\mathcal{D}_k$ be the training set.
-   - Train the model $f_{\theta}^{(k)}$ on $\mathcal{D}_{-k}$.
-   - Compute the validation loss:
-     $$
+- Compute the validation loss:
+  
+```math
      \ell_k=\frac{1}{|\mathcal{D}_k|} \sum_{(x_i,y_i) \in \mathcal{D}_k} L(f_{\theta}^{(k)}(x_i),y_i)
-     $$
-
-3. **Compute the final cross-validation score** by averaging over all $K$ folds:
-   $$
+```
+**Compute the final cross-validation score** by averaging over all $K$ folds:
+```math
    \ell_{\text{CV}}=\frac{1}{K} \sum_{k=1}^{K} \ell_k
-   $$
+```
 
 ### Leave-One-Out Cross Validation (LOOCV)
 
